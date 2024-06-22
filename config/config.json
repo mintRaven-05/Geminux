@@ -1,0 +1,81 @@
+[
+    {
+        "_comment": [
+            "WARNING : THIS CONFIGURATION IS CASE SENSITIVE",
+            "This configuration block is responsible for holding user and model credentials.",
+            "You need to provide an API key for this to work and also provide which model of gemini",
+            "you want to use. You can also change the name of the model according to your own need.",
+            "You can also mention by what name do you want the model to address you.",
+            "Available MODEL_VERSION are listed below",
+            " -> text-embedding-004",
+            " -> gemini-1.0-pro",
+            " -> gemini-1.5-pro",
+            " -> gemini-1.5-flash"
+        ],
+        "API_KEY": "AIzaSyB7zH-31mzF9BUjBVUYbO5any0UM4RasIE",
+        "MODEL_VERSION": "gemini-1.5-pro",
+        "MODEL_NAME": "brad",
+        "USER": "mintRaven"
+    },
+    {
+        "_comment": [
+            "WARNING : THIS CONFIGURATION IS CASE SENSITIVE",
+            "you can set the design and color of the output in this block. you can also change text color",
+            "Various stylings for the colors are also provided. Available colors are listed below",
+            "------------------------------------------------------------------------------------------------------------------------------------",
+            " -> Red & Bold Red                                                     -> Underline Red & Italic Red",
+            " -> White & Bold White                                                 -> Underline White & Italic White",
+            " -> Blue & Bold Blue                                                   -> Underline Blue & Italic Blue",
+            " -> Cyan & Bold Cyan                                                   -> Underline Cyan & Italic Cyan",
+            " -> Green & Bold Green                                                 -> Underline Green & Italic Green",
+            " -> Black & Bold Black                                                 -> Underline Black & Italic Black",
+            " -> Yellow & Bold Yellow                                               -> Underline Yellow & Italic Yellow",
+            " -> Purple & Bold Purple                                               -> Underline Purple & Italic Purple",
+            "------------------------------------------------------------------------------------------------------------------------------------",
+            " -> Bold Underline Red & Bold Italic Red                               -> Underline Italic Red & Bold Underline Italic Red",
+            " -> Bold Underline White & Bold Italic White                           -> Underline Italic White & Bold Underline Italic White",
+            " -> Bold Underline Blue & Bold Italic Blue                             -> Underline Italic Blue & Bold Underline Italic Blue",
+            " -> Bold Underline Cyan & Bold Italic Cyan                             -> Underline Italic Cyan & Bold Underline Italic Cyan",
+            " -> Bold Underline Green & Bold Italic Green                           -> Underline Italic Green & Bold Underline Italic Green",
+            " -> Bold Underline Black & Bold Italic Black                           -> Underline Italic Black & Bold Underline Italic Black",
+            " -> Bold Underline Yellow & Bold Italic Yellow                         -> Underline Italic Yellow & Bold Underline Italic Yellow",
+            " -> Bold Underline Purple & Bold Italic Purple                         -> Underline Italic Purple & Bold Underline Italic Purple",
+            "-------------------------------------------------------------------------------------------------------------------------------------"
+        ],
+        "BORDER_NW": "\u256d",
+        "BORDER_SE": "\u256f",
+        "BORDER_NE": "\u256e",
+        "BORDER_SW": "\u2570",
+        "BORDER_ROOF": "\u2500",
+        "BORDER_FLOOR": "\u2500",
+        "BORDER_WALL": "\u2502",
+        "BORDER_COLOR": "Cyan",
+        "HEADLINE_TEXT": "",
+        "HEADLINE_COLOR": "Bold Italic Cyan",
+        "PROMPT": " \ue602 ",
+        "PROMPT_COLOR": "Red",
+        "INPUT_COLOR": "Bold White",
+        "RESPONSE_COLOR": "Yellow"
+    },
+    {
+        "_comment": [
+            "WARNING : CHANGING THESE SETTINGS CAN AFFECT YOUR EXPERIENCE WITH THIS MODEL",
+            "WARNING : THIS CONFIGURATION IS CASE SENSITIVE",
+            "You can change safety settings here for the content that gemini processes for you provided prompt",
+            "Availble settings are listed below : ",
+            " -> BLOCK_NONE",
+            " -> BLOCK_LOW_AND_ABOVE",
+            " -> BLOCK_MEDIUM_AND_ABOVE",
+            " -> BLOCK_ONLY_HIGH",
+            " -> HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+        ],
+        "SAFETY_PROTOCOLS": [
+            {
+                "HARM_CATEGORY_HARASSMENT": "BLOCK_NONE",
+                "HARM_CATEGORY_HATE_SPEECH": "BLOCK_NONE",
+                "HARM_CATEGORY_SEXUALLY_EXPLICIT": "BLOCK_NONE",
+                "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_NONE"
+            }
+        ]
+    }
+]
