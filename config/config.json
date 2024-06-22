@@ -12,10 +12,10 @@
             " -> gemini-1.5-pro",
             " -> gemini-1.5-flash"
         ],
-        "API_KEY": "AIzaSyB7zH-31mzF9BUjBVUYbO5any0UM4RasIE",
+        "API_KEY": "",
         "MODEL_VERSION": "gemini-1.5-pro",
-        "MODEL_NAME": "brad",
-        "USER": "mintRaven"
+        "MODEL_NAME": "",
+        "USER": ""
     },
     {
         "_comment": [
