@@ -20,7 +20,7 @@ This tool is currently made for just Linux and not windows. I will soon make win
 ### Features
 - ***Coherent Text Generation***: Generate creative responses based on prompts given by the user
 - ***Ability to remember context***: It can remember upto last 5 conversations, by implementing a soft training using the data from a history file.
-- ***Configurable***: User configure the whole output along with the ability to change to model name and also the name by which the user wants the model to address him/her.
+- ***Configurable***: User can configure the whole output along with the ability to change to model name and also the name by which the user wants the model to address him/her.
 - ***Easy to use CLI interface***: User is provided with a very easy to use interface with text generation animation.
 
 ## Installation
