@@ -28,7 +28,7 @@ import subprocess
 from os import path, environ
 
 HOME = path.expanduser("~")
-SHELL = environ.get("SHELL", "")[5:]
+SHELL = environ.get("SHELL", "")
 USER = HOME[6:]
 
 try:
@@ -85,7 +85,7 @@ try:
             time.sleep(0.5)
             print(f"Generating history.json file")
 
-            if SHELL == "zsh":
+            if "zsh" in SHELL:
                 print("updating ~/.zshrc")
                 with open(f"{HOME}/.zshrc", "a") as shell_file:
                     shell_file.write("alias geminux='python ~/.Geminux/main.py'\n")
@@ -98,7 +98,7 @@ try:
                 )
                 print("you can now re-lode the terminal")
 
-            elif SHELL == "bash":
+            elif "bash" in SHELL:
                 with open(f"{HOME}/.bashrc", "a") as shell_file:
                     shell_file.write("alias geminux='python ~/.geminux/main.py'\n")
                     shell_file.close()
