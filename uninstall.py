@@ -41,7 +41,7 @@ try:
                subprocess.call(["rm", "-rf", f"{HOME}/.config/Geminux"])
                time.sleep(0.5)
             
-            if SHELL == "zsh":
+            if "zsh" in SHELL:
                 print("removing alias and key binds from ~/.zshrc")
                 with open(f"{HOME}/.zshrc", "r") as shell_file:
                     data = shell_file.readlines()
@@ -72,7 +72,7 @@ try:
                         shell_file.writelines(data)
                         shell_file.close()
                             
-            if SHELL == "bash":
+            if "bash" in SHELL:
                 print("removing alias from ~/.bashrc")
                 with open(f"{HOME}/.bashrc", "r") as shell_file:
                     data = shell_file.readlines()
