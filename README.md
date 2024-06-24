@@ -22,13 +22,14 @@ Geminux is a CLI tool, which uses the Google AI studio Gemini API to provide an 
 - ***Easy to use CLI interface***: User is provided with a very easy to use interface with text generation animation.
 
 ## Installation
+### Linux
 
 An installer script is already made. All you need to do is run the script using python. Copy the following codes and run it in your terminal.
 
-- Copy the repository
+- Clone the repository
 
 ```bash
-git clone 
+git clone https://github.com/mintRaven-05/Geminux.git
 ```
 
 - Run the installer script
@@ -39,6 +40,46 @@ python install.py
 ```
 
 After running the script, provide a name to the model (optional) and an API key (mandatory) when required and it will install the model with the default aliases for your respective shell. You will get the name of the alias by which you can activate the model at the end after installation.
+
+### Windows
+
+The same installer script used for Linux can also be used to install Geminux in Windows using Python.
+Copy the following codes and run it in your terminal.
+
+- Clone the repository
+  
+```bash
+git clone https://github.com/mintRaven-05/Geminux.git
+```
+
+- Run the installer script
+
+```bash
+cd Geminux
+python install.py
+```
+
+After running the script, you can provide a name to the model (optional) and an API key (mandatory) when required and it will install the model.
+After installation, you can add a function to your Powershell profile to activate Gemini anytime from anywhere in your Powershell.
+If you don't have a Powershell profile, then you can create one using the following code
+
+```bash
+New-Item -Path $PROFILE -type File -force
+```
+
+if you already have one or you have created a new one, open it using the following command
+
+```bash
+notepad $PROFILE
+```
+
+and now add the function to activate Geminux globally
+
+```bash
+function geminux{python.exe "<YOUR HOME PATH>\.Gemminux\main.py"}
+```
+
+Save the file after writing the function and reload your terminal. Now you can type just `geminux` in your Powershell and it will start the model. 
 
 ## Demo Screenshot
 
