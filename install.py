@@ -127,7 +127,7 @@ try:
             if MODEL_NAME == "":
                 MODEL_NAME = "Geminux"
             API_KEY = input("Enter your API key : ")
-            with open("config/config.json", "r") as file:
+            with open("config\\config.json", "r") as file:
                 json_data = json.load(file)
                 file.close()
 
@@ -135,7 +135,7 @@ try:
             json_data[0]["USER"] = WINDOWS_USER
             json_data[0]["MODEL_NAME"] = MODEL_NAME
 
-            with open("config/config.json", "w") as file:
+            with open("config\\config.json", "w") as file:
                 json.dump(json_data, file)
                 file.close()
             print("\033[0;32m[+]\033[0;37m Config file generated")
