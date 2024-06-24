@@ -123,13 +123,18 @@ After installing Geminux, a config folder will be created with the following pat
 Everything is well documented inside the config file. You can config Geminux as per your need by changing these available settings.
 
 ## Uninstall
-
+### Linux
 After installation, a folder is generated inside the home directory. Path to that folder is `~/.Geminux`. Inside this folder all the necessary files for Geminux to function are moved. But along with those necessary files, an uninstaller is also moved which is again a python script. So, in order to uninstall Geminux all you need to do is run the following command in your terminal.
 
 ```bash
 python ~/.Geminux/uninstall.py
 ```
+### Windows
+After installation, a folder is generated inside the home directory. The path to that folder is `.\.Geminux`. Inside the folder, all the necessary files for Geminux to function are moved. But along with those necessary files, an uninstaller is also moved which is again a Python script. So, to uninstall Geminux all you need to do is run the following command in your terminal.
 
+```bash
+python .\.Geminux\uninstall.py
+```
 <p align="center">Copyright &copy; 2024 <a href="https://github.com/mintRaven-05" target="_blank">Debjeet Banerjee</a>
 <p align="center"><a href="https://github.com/mintRaven-05/Geminux/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
 
