@@ -93,10 +93,10 @@ try:
                print(f"removing {HOME}/.Geminux")
                subprocess.call(["rm", "-rf", f"{HOME}/.Geminux"])
                time.sleep(0.5)
-        print("Uninstallation completed !")
-        print("Relode your terminal")
-        print("Thank you for trying Geminux")
-        print("visit www.github.com/mintRaven-05 for more projects")
+               print("Uninstallation completed !")
+               print("Relode your terminal")
+               print("Thank you for trying Geminux")
+               print("visit www.github.com/mintRaven-05 for more projects")
 
         elif platform.architecture()[1] == "WindowsPE":
             if Path(f"{HOME}/.config/Geminux").exists():
