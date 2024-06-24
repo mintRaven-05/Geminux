@@ -7,7 +7,6 @@
             "you want to use. You can also change the name of the model according to your own need.",
             "You can also mention by what name do you want the model to address you.",
             "Available MODEL_VERSION are listed below",
-            " -> text-embedding-004",
             " -> gemini-1.0-pro",
             " -> gemini-1.5-pro",
             " -> gemini-1.5-flash"
