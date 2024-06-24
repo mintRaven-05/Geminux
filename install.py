@@ -29,7 +29,7 @@ from os import path, environ
 
 HOME = path.expanduser("~")
 SHELL = environ.get("SHELL", "")
-USER = HOME[6:]
+
 
 try:
     ch = input("Do you want to proceed with the installation of Geminux [y/n] ?")
