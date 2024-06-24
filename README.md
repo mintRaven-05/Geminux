@@ -1,5 +1,4 @@
-# GEMINUX
-#### Python Licence 
+<h1 align=center>GEMINUX</h1> 
 
 ## Purpose
 
