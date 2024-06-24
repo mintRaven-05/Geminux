@@ -76,7 +76,7 @@ notepad $PROFILE
 and now add the function to activate Geminux globally
 
 ```bash
-function geminux{python.exe "<YOUR HOME PATH>\.Gemminux\main.py"}
+function geminux{python.exe "<YOUR HOME PATH>\.Geminux\main.py"}
 ```
 
 Save the file after writing the function and reload your terminal. Now you can type just `geminux` in your Powershell and it will start the model. 
