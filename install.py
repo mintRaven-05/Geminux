@@ -29,8 +29,14 @@ from os import path, environ, makedirs
 import shutil
 
 HOME = path.expanduser("~")
+LINUX_USER = HOME[6:]
+WINDOWS_USER = HOME[9:]
 
-
+def make_child_dir(dir):
+    try:
+        makedirs(dir)
+    except FileExistsError:
+        print(f"{dir} already exists")
 
 try:
     ch = input("Do you want to proceed with the installation of Geminux [y/n] ?")
@@ -107,8 +113,82 @@ try:
 
                 print("type geminux to activate the model")
                 print("you can now re-lode the terminal")
+        elif platform.architecture()[1] == "WindowsPE":
+            print("collecting module 1 of 1")
+            time.sleep(1)
+            subprocess.run("pip install google-generativeai")
+            print("module collected")
+            time.sleep(1)
+            MODEL_NAME = input("""
+    By what name would you like to address Geminux ? 
+    Default name is Geminux [This is an optional parameter, you can change the name later from ~/.config/geminux/config.json]
+    press enter to keep default settings or enter a name if you want.
+    >""")
+            if MODEL_NAME == "":
+                MODEL_NAME = "Geminux"
+            API_KEY = input("Enter your API key : ")
+            with open("config/config.json", "r") as file:
+                json_data = json.load(file)
+                file.close()
+
+            json_data[0]["API_KEY"] = API_KEY
+            json_data[0]["USER"] = WINDOWS_USER
+            json_data[0]["MODEL_NAME"] = MODEL_NAME
+
+            with open("config/config.json", "w") as file:
+                json.dump(json_data, file)
+                file.close()
+            print("\033[0;32m[+]\033[0;37m Config file generated")
+            time.sleep(1)
+            try:
+                parent_dir = f"{HOME}\.Geminux"
+                makedirs(parent_dir)
+                config_child = f"{HOME}\.Geminux\config"
+                essentials_child = f"{HOME}\.Geminux\essentials"
+                history_child = f"{HOME}\.Geminux\hsitory"
+
+                make_child_dir(config_child)
+                make_child_dir(essentials_child)
+                make_child_dir(history_child)
+
+            except FileExistsError:
+                print(f"File {HOME}\.Geminux already exists")
+            try:
+                config_dir = f"{HOME}\.config"
+                makedirs(config_dir)
+                make_child_dir(f"{HOME}\.config\Geminux")
+            except FileExistsError:
+                print(f"{HOME}\.config already exists")
+           
+            print(f"moving config.json into {HOME}\.config")
+            shutil.copy("./config/config.json", f"{HOME}\.config\Geminux")
+            time.sleep(0.5)
+
+            print(f"moving config handlers into {HOME}\.Geminux")
+            shutil.copytree("config", f"{HOME}\.Geminux\config", dirs_exist_ok=True)
+            time.sleep(0.5)
+
+            print(f"moving essential libs into {HOME}\.Geminux")
+            shutil.copytree("essentials", f"{HOME}\.Geminux\essentials", dirs_exist_ok=True)
+            time.sleep(0.5)
+
+            print(f"moving history/history.json into {HOME}\.Geminux")
+            shutil.copytree("history", f"{HOME}\.Geminux\history", dirs_exist_ok=True)
+            time.sleep(0.5)
+
+            print(f"moving main file to {HOME}\.Geminux")
+            shutil.copy("./main.py", f"{HOME}\.Geminux")
+            time.sleep(0.5)
+
+            print("preparing uninstaller")
+            shutil.copy("./uninstall.py", f"{HOME}\.Geminux")
+            time.sleep(0.5)
+            
+            print("Installation completed, you can add Geminux to your $PROFILE")
+
         else:
-            print("Development and itegration for platforms other than linux is still going on...sorry for the inconvinience")
+            print("Geminux is only compatible with Linux and Windows")
+        
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("Understandable . . .")
         sys.exit(0)
