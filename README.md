@@ -5,9 +5,6 @@
 
 Geminux is a CLI tool, which uses the Google AI studio Gemini API to provide an interactive session between the user and Google Gemini. It leverages the power of Gemini 1.5 pro, a versatile language model trained by Google, to create natural language text. This tool is created with new features which are not provided by Google, and we will discuss them one by one later in this file.
 
-### Notice
-This tool is currently made for just Linux and not windows. I will soon make windows integration for this CLI tool
-
 ### Prerequisites 
 - Having Nerd Font is necessary, else some of the symbols might not be displayed. After installing Nerd Font, apply it to your terminal.
 - You can install the font from this link https://www.nerdfonts.com/font-downloads
