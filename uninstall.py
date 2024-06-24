@@ -26,6 +26,7 @@ import platform
 import subprocess
 from pathlib import Path
 from os import path, environ
+import shutil
 
 HOME = path.expanduser("~")
 SHELL = environ.get('SHELL', '')[5:]
@@ -94,6 +95,23 @@ try:
                time.sleep(0.5)
         print("Uninstallation completed !")
         print("Relode your terminal")
+        print("Thank you for trying Geminux")
+        print("visit www.github.com/mintRaven-05 for more projects")
+
+        elif platform.architecture()[1] == "WindowsPE":
+            if Path(f"{HOME}/.config/Geminux").exists():
+               print(f"removing {HOME}\.config")
+               shutil.rmtree(f"{HOME}\\.config")
+               time.sleep(0.5)
+            if Path(f"{HOME}/.Geminux").exists():
+                print(f"removing {HOME}\.Geminux")
+                shutil.rmtree(f"{HOME}\\.Geminux")
+                time.sleep(0.5)
+            time.sleep(1)
+            print("uninstallation completed")
+            print("Thank you for trying Geminux")
+            print("remove all functions for Geminux from powershell PROFILE, if added any")
+            print("visit https://www.github.com/mintRaven-05 for more projects")
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("quiting . . .")
         sys.exit(0)
