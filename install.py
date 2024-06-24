@@ -28,13 +28,14 @@ import subprocess
 from os import path, environ
 
 HOME = path.expanduser("~")
-SHELL = environ.get("SHELL", "")
+
 
 
 try:
     ch = input("Do you want to proceed with the installation of Geminux [y/n] ?")
     if ch.upper() == "Y" or ch.upper() == "YES":
         if platform.architecture()[1] == "ELF":
+            SHELL = environ.get("SHELL", "")
             print("collecting modules 1 of 1")
             time.sleep(0.5)
             subprocess.call(
