@@ -53,7 +53,7 @@
         "HEADLINE_TEXT": "",
         "HEADLINE_COLOR": "Bold Italic Cyan",
         "PROMPT": " \ue602 ",
-        "PROMPT_COLOR": "Red",
+        "PROMPT_COLOR": "Cyan",
         "INPUT_COLOR": "Bold White",
         "RESPONSE_COLOR": "Yellow"
     },
