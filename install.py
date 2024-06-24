@@ -25,7 +25,8 @@ import json
 import time
 import platform
 import subprocess
-from os import path, environ
+from os import path, environ, makedirs
+import shutil
 
 HOME = path.expanduser("~")
 
