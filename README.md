@@ -89,9 +89,8 @@ After installation, a folder is generated inside the home directory. Path to tha
 python ~/.Geminux/uninstall.py
 ```
 
-## License
-This software is released under MIT license. Remember that this gives you all freedom except for slapping your name on it.  
-Copyright (c) 2024 Debjeet Banerjee
+<p align="center">Copyright &copy; 2024 <a href="https://github.com/mintRaven-05" target="_blank">Debjeet Banerjee</a>
+<p align="center"><a href="https://github.com/mintRaven-05/Geminux/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a></p>
 
 
 
