@@ -35,7 +35,10 @@ model = genai.GenerativeModel(user["MODEL_VERSION"])
 
 print(f'{ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]} Model : {user["MODEL_VERSION"]}{ansi_color_dict["White"]["active"]}')
 print(f'{ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]}{conf["HEADLINE_TEXT"]}{ansi_color_dict["White"]["active"]}')
-prompt = input(f"{ansi_color_dict[conf["PROMPT_COLOR"]]["active"]}{conf["PROMPT"]}{ansi_color_dict["White"]["active"]}{ansi_color_dict[conf["INPUT_COLOR"]]["active"]}")
+try:
+    prompt = input(f"{ansi_color_dict[conf["PROMPT_COLOR"]]["active"]}{conf["PROMPT"]}{ansi_color_dict["White"]["active"]}{ansi_color_dict[conf["INPUT_COLOR"]]["active"]}")
+except KeyboardInterrupt:
+    print(f"\n{ansi_color_dict["Red"]["active"]}[EXIT]{ansi_color_dict["White"]["active"]}")
 print(ansi_color_dict["White"]["active"], end = "")
 
 prompts, responses = history.LoadHistory()
