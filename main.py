@@ -33,20 +33,31 @@ genai.configure(api_key = user["API_KEY"])
 
 model = genai.GenerativeModel(user["MODEL_VERSION"])
 
-print(f'{ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]} Model : {user["MODEL_VERSION"]}{ansi_color_dict["White"]["active"]}')
-print(f'{ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]}{conf["HEADLINE_TEXT"]}{ansi_color_dict["White"]["active"]}')
+BORDER_COLOR = ansi_color_dict[conf["BORDER_COLOR"]]["active"]
+HEADLINE_COLOR = ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]
+HEADLINE_TEXT = conf["HEADLINE_TEXT"]
+MODEL = user["MODEL_VERSION"]
+RESET = ansi_color_dict["White"]["active"]
+PROMPT_COLOR = ansi_color_dict[conf["PROMPT_COLOR"]]["active"]
+PROMPT = conf["PROMPT"]
+INPUT_COLOR = ansi_color_dict[conf["INPUT_COLOR"]]["active"]
+ERROR_COLOR = ansi_color_dict["Red"]["active"]
+
+
+print(f'{HEADLINE_COLOR} Model : {MODEL}{RESET}')
+print(f'{HEADLINE_COLOR}{HEADLINE_TEXT}{RESET}')
 try:
-    prompt = input(f"{ansi_color_dict[conf["PROMPT_COLOR"]]["active"]}{conf["PROMPT"]}{ansi_color_dict["White"]["active"]}{ansi_color_dict[conf["INPUT_COLOR"]]["active"]}")
+    prompt = input(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}")
 except KeyboardInterrupt:
-    print(f"\n{ansi_color_dict["Red"]["active"]}[EXIT]{ansi_color_dict["White"]["active"]}")
-print(ansi_color_dict["White"]["active"], end = "")
+    print(f"\n{ERROR_COLOR}[EXIT]{RESET}")
+print(RESET, end = "")
 
 prompts, responses = history.LoadHistory()
 session = model.start_chat(history=history.GenerateHistoryStub(prompts, responses))
 
 try:
-    response = session.send_message(prompt, safety_settings=protocols)
+    response = session.send_message(prompt, safety_settings=protocols)  
+    bordered_textbox(response.text, BORDER_COLOR)
     history.UpdateHistory(prompt, response.text)
-    bordered_textbox(response.text, ansi_color_dict[conf["BORDER_COLOR"]]["active"])
 except Exception as e:
-    print(f"{ansi_color_dict["Red"]["active"]}[Error] Could not process prompt : {e}{ansi_color_dict["White"]["active"]}")
+    print(f"{ERROR_COLOR}[Error] Could not process prompt : {e}{RESET}")
