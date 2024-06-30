@@ -177,11 +177,11 @@ try:
             time.sleep(0.5)
 
             print(f"moving main file to {HOME}\.Geminux")
-            shutil.copy("./main.py", f"{HOME}\.Geminux")
+            shutil.copy2("./main.py", f"{HOME}\.Geminux")
             time.sleep(0.5)
 
             print("preparing uninstaller")
-            shutil.copy("./uninstall.py", f"{HOME}\.Geminux")
+            shutil.copy2("./uninstall.py", f"{HOME}\.Geminux")
             time.sleep(0.5)
             
             print("Installation completed, you can add Geminux to your $PROFILE")
