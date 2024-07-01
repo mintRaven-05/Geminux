@@ -15,10 +15,10 @@ Geminux is a CLI tool, which uses the Google AI studio Gemini API to provide an 
 
 ### Features
 - ***Coherent Text Generation***: Generate creative responses based on prompts given by the user
-- ***Ability to remember context***: It can remember upto last 5 conversations.
+- ***Ability to remember context***: It can remember up to the last 5 conversations.
 - ***Soft training:*** implementation of a soft training method using the data from a history file.
-- ***Configurable***: User can configure the whole output along with safety protocols. 
-- ***Easy to use CLI interface***: User is provided with a very easy to use interface with text generation animation.
+- ***Configurable***: The user can configure the whole output along with safety protocols. 
+- ***Easy to use CLI interface***: The user is provided with a very easy-to-use interface with text generation animation.
 
 ## Installation
 ### Linux
