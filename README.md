@@ -100,12 +100,12 @@ After installing Geminux, a config folder will be created with the following pat
 #### Output configuration
 
 ![swappy-20240622_201325](https://github.com/I-DebjeetBanerjee/Geminux/assets/136410764/f30fcf52-fbea-4fe8-8ada-75b5df2f3a8d)
--  **`BORDER_*`*** : Everything that starts with BORDER_ are the components required by the border that encloses the response as show in the demo screenshot.
-- **`HEADLINE_TEXT`:** This text will appear after the Model is printed over the terminal. Default is empty, and you keep it default if you don't want any custom headline.
+-  **`BORDER_*`*** : Everything that starts with BORDER_ are the components required by the border that encloses the response as shown in the demo screenshot.
+- **`HEADLINE_TEXT`:** This text will appear after the Model is printed over the terminal. The default is empty, and you keep it if you don't want any custom headline.
 - **`HEADLINE_COLOR`:** As the name suggests, this will set color to the headline, which includes the model version that will be printed.
 - **`PROMPT`:** This is the input prompt which will appear when giving input to Geminux.
 - **`PROMPT_COLOR`:** : Again as the name suggests, will set the prompt color.
-- **`INPUT_COLOR`:** will set the style and color of the input that the you will give.
+- **`INPUT_COLOR`:** will set the style and color of the input that you will give.
 - **`RESPONSE_COLOR`:** This will set the color of the response enclosed inside the border.
 - Different ANSI color choices and different styles are well documented inside the `config.json` file. You can use all those colors wherever it is applicable for Geminux.
 #### Safety protocols configuration
