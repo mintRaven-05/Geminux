@@ -26,8 +26,17 @@ import time
 import shutil
 import platform
 import subprocess
-import essentials.ansi
 from os import path, environ, makedirs
+
+#--------------------------------------------------------------------------------------------------------
+ansi = {
+    "White" : "\033[0;37m",
+    "Green" : "\033[0;32m",
+    "Yellow" : "\033[0;33m",
+    "Red" : "\033[1;31m",
+    "Bold Green" : "\033[1;32m"
+}
+#--------------------------------------------------------------------------------------------------------
 
 HOME = path.expanduser("~")
 LINUX_USER = HOME[6:]
