@@ -23,10 +23,11 @@
 import sys
 import json
 import time
+import shutil
 import platform
 import subprocess
+import essentials.ansi
 from os import path, environ, makedirs
-import shutil
 
 HOME = path.expanduser("~")
 LINUX_USER = HOME[6:]
@@ -39,26 +40,26 @@ def make_child_dir(dir):
         print(f"{dir} already exists")
 
 try:
-    ch = input("Do you want to proceed with the installation of Geminux [y/n] ?")
+    ch = input(f"{ansi['Yellow']}Do you want to proceed with the installation of Geminux [y/n] ?{ansi['White']}")
     if ch.upper() == "Y" or ch.upper() == "YES":
         if platform.architecture()[1] == "ELF":
             SHELL = environ.get("SHELL", "")
-            print("collecting modules 1 of 1")
+            print(f"{ansi["Green"]}[+] collecting modules 1 of 1{ansi["White"]}")
             time.sleep(0.5)
             subprocess.call(
                 ["pip", "install", "google-generativeai", "--break-system-packages"]
             )
             time.sleep(1)
-            print("\033[0;32m[+]\033[0;37m module installed")
+            print(f"{ansi["Green"]}[+]module installed{ansi["White"]}")
             time.sleep(0.5)
-            MODEL_NAME = input("""
+            MODEL_NAME = input(f"""{ansi["Yellow"]}
     By what name would you like to address Geminux ? 
     Default name is Geminux [This is an optional parameter, you can change the name later from ~/.config/geminux/config.json]
     press enter to keep default settings or enter a name if you want.
-    >""")
+    >{ansi["White"]}""")
             if MODEL_NAME == "":
                 MODEL_NAME = "Geminux"
-            API_KEY = input("Enter your API key : ")
+            API_KEY = input(f"{ansi["Yellow"]}Enter your API key : {ansi["White"]}")
             with open("config/config.json", "r") as file:
                 json_data = json.load(file)
                 file.close()
@@ -70,7 +71,7 @@ try:
             with open("config/config.json", "w") as file:
                 json.dump(json_data, file)
                 file.close()
-            print("\033[0;32m[+]\033[0;37m Config file generated")
+            print(f"{ansi["Bold Green"]}[+]Config file generated{ansi["White"]}")
             time.sleep(1)
             print(f"Creating {HOME}/.Geminux")
             subprocess.call(["mkdir", f"{HOME}/.Geminux"])
