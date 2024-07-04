@@ -170,11 +170,11 @@ try:
             #------------------------------------------------------------------------------------------------------------
             try:
                 #--------------------------------------------------------------------------------------------------------
-                parent_dir = f"{HOME}\.Geminux"
+                parent_dir = f"{HOME}\\.Geminux"
                 makedirs(parent_dir)
-                config_child = f"{HOME}\.Geminux\config"
-                essentials_child = f"{HOME}\.Geminux\essentials"
-                history_child = f"{HOME}\.Geminux\hsitory"
+                config_child = f"{HOME}\\.Geminux\\config"
+                essentials_child = f"{HOME}\\.Geminux\\essentials"
+                history_child = f"{HOME}\\.Geminux\\hsitory"
                 #--------------------------------------------------------------------------------------------------------
                 make_child_dir(config_child)
                 make_child_dir(essentials_child)
@@ -182,42 +182,42 @@ try:
                 #--------------------------------------------------------------------------------------------------------
             except FileExistsError:
                 #--------------------------------------------------------------------------------------------------------
-                print(f"File {HOME}\.Geminux already exists")
+                print(f"File {HOME}\\.Geminux already exists")
                 #--------------------------------------------------------------------------------------------------------
             try:
                 #--------------------------------------------------------------------------------------------------------
-                config_dir = f"{HOME}\.config"
+                config_dir = f"{HOME}\\.config"
                 makedirs(config_dir)
-                make_child_dir(f"{HOME}\.config\Geminux")
+                make_child_dir(f"{HOME}\\.config\\Geminux")
                 #--------------------------------------------------------------------------------------------------------
             except FileExistsError:
                 #--------------------------------------------------------------------------------------------------------
-                print(f"{HOME}\.config already exists")
+                print(f"{HOME}\\.config already exists")
                 #--------------------------------------------------------------------------------------------------------
 
             #------------------------------------------------------------------------------------------------------------
-            print(f"moving config.json into {HOME}\.config")
-            shutil.copy("./config/config.json", f"{HOME}\.config\Geminux")
+            print(f"moving config.json into {HOME}\\.config")
+            shutil.copy("./config/config.json", f"{HOME}\\.config\\Geminux")
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print(f"moving config handlers into {HOME}\.Geminux")
-            shutil.copytree("config", f"{HOME}\.Geminux\config", dirs_exist_ok=True)
+            shutil.copytree("config", f"{HOME}\\.Geminux\\config", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
-            print(f"moving essential libs into {HOME}\.Geminux")
-            shutil.copytree("essentials", f"{HOME}\.Geminux\essentials", dirs_exist_ok=True)
+            print(f"moving essential libs into {HOME}\\.Geminux")
+            shutil.copytree("essentials", f"{HOME}\.Geminux\\essentials", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
-            print(f"moving history/history.json into {HOME}\.Geminux")
-            shutil.copytree("history", f"{HOME}\.Geminux\history", dirs_exist_ok=True)
+            print(f"moving history/history.json into {HOME}\\.Geminux")
+            shutil.copytree("history", f"{HOME}\\.Geminux\history", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
-            print(f"moving main file to {HOME}\.Geminux")
-            shutil.copy2("./main.py", f"{HOME}\.Geminux")
+            print(f"moving main file to {HOME}\\.Geminux")
+            shutil.copy2("./main.py", f"{HOME}\\.Geminux")
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print("preparing uninstaller")
-            shutil.copy2("./uninstall.py", f"{HOME}\.Geminux")
+            shutil.copy2("./uninstall.py", f"{HOME}\\.Geminux")
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print(f"Installation completed, you can add Geminux to your $PROFILE{ansi["White"]}")
