@@ -19,20 +19,19 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
-
+#------------------------------------------------------------------------------------------------------------------------------------
 import google.generativeai as genai
 from essentials.ansi import ansi_color_dict, bordered_textbox
 import essentials.history as history
 from config.ConfigHandle import GetUserConfig,GetOutputConfigs, GetSafetyProtocols
-
+#------------------------------------------------------------------------------------------------------------------------------------
 user = GetUserConfig()
 conf = GetOutputConfigs()
 protocols = GetSafetyProtocols()
-
+#------------------------------------------------------------------------------------------------------------------------------------
 genai.configure(api_key = user["API_KEY"])
-
 model = genai.GenerativeModel(user["MODEL_VERSION"])
-
+#------------------------------------------------------------------------------------------------------------------------------------
 BORDER_COLOR = ansi_color_dict[conf["BORDER_COLOR"]]["active"]
 HEADLINE_COLOR = ansi_color_dict[conf["HEADLINE_COLOR"]]["active"]
 HEADLINE_TEXT = conf["HEADLINE_TEXT"]
@@ -42,22 +41,25 @@ PROMPT_COLOR = ansi_color_dict[conf["PROMPT_COLOR"]]["active"]
 PROMPT = conf["PROMPT"]
 INPUT_COLOR = ansi_color_dict[conf["INPUT_COLOR"]]["active"]
 ERROR_COLOR = ansi_color_dict["Red"]["active"]
-
-
+#------------------------------------------------------------------------------------------------------------------------------------
 print(f'{HEADLINE_COLOR} Model : {MODEL}{RESET}')
 print(f'{HEADLINE_COLOR}{HEADLINE_TEXT}{RESET}')
+#------------------------------------------------------------------------------------------------------------------------------------
 try:
     prompt = input(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}")
+#------------------------------------------------------------------------------------------------------------------------------------
 except KeyboardInterrupt:
     print(f"\n{ERROR_COLOR}[EXIT]{RESET}")
 print(RESET, end = "")
-
+#------------------------------------------------------------------------------------------------------------------------------------
 prompts, responses = history.LoadHistory()
 session = model.start_chat(history=history.GenerateHistoryStub(prompts, responses))
-
+#------------------------------------------------------------------------------------------------------------------------------------
 try:
     response = session.send_message(prompt, safety_settings=protocols)  
     bordered_textbox(response.text, BORDER_COLOR)
     history.UpdateHistory(prompt, response.text)
+#------------------------------------------------------------------------------------------------------------------------------------
 except Exception as e:
     print(f"{ERROR_COLOR}[Error] Could not process prompt : {e}{RESET}")
+#------------------------------------------------------------------------------------------------------------------------------------
