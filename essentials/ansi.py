@@ -19,18 +19,18 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
-
+#------------------------------------------------------------------------------------------------------------------------------------
 import time
 from dataclasses import dataclass
 from config.ConfigHandle import GetOutputConfigs
-
+#------------------------------------------------------------------------------------------------------------------------------------
 confs = GetOutputConfigs()
-
+#------------------------------------------------------------------------------------------------------------------------------------
 @dataclass
 class AnsiColor:
     active : str = "\033[0;37m"
     label : str = "White"
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #create general ANSI colors
 def MakeAnsiNormal(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -40,6 +40,7 @@ def MakeAnsiNormal(color : AnsiColor) -> dict[str, str]:
     new_label = color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Bold ANSI colors
 def MakeAnsiBold(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -49,7 +50,7 @@ def MakeAnsiBold(color : AnsiColor) -> dict[str, str]:
     new_label = 'Bold '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Underline style ANSI color
 def MakeAnsiUnderline(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -59,7 +60,7 @@ def MakeAnsiUnderline(color : AnsiColor) -> dict[str, str]:
     new_label = 'Underline '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create  Italic style ANSI color
 def MakeAnsiItalic(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -69,7 +70,7 @@ def MakeAnsiItalic(color : AnsiColor) -> dict[str, str]:
     new_label = 'Italic '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Bold and Underline style ANSI color
 def MakeAnsiBoldUnderline(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -79,7 +80,7 @@ def MakeAnsiBoldUnderline(color : AnsiColor) -> dict[str, str]:
     new_label = 'Bold Underline '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Bold and Italic style ANSI color
 def MakeAnsiBoldItalic(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -89,7 +90,7 @@ def MakeAnsiBoldItalic(color : AnsiColor) -> dict[str, str]:
     new_label = 'Bold Italic '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict 
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Underline and Italic style ANSI color
 def MakeAnsiUnderlineItalic(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -99,7 +100,7 @@ def MakeAnsiUnderlineItalic(color : AnsiColor) -> dict[str, str]:
     new_label = 'Underline Italic '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Create Bold Underline and Italic style ANSI color
 def MakeAnsiBoldUnderlineItalic(color : AnsiColor) -> dict[str, str]:
     ansi_chars = [c for c in color.active]
@@ -109,7 +110,7 @@ def MakeAnsiBoldUnderlineItalic(color : AnsiColor) -> dict[str, str]:
     new_label = 'Bold Underline Italic '+color.label
     ansi_dict = {"active" : new_active, "label" : new_label}
     return ansi_dict
-
+#------------------------------------------------------------------------------------------------------------------------------------
 reset = AnsiColor("\033[0;37m")
 red = AnsiColor("\033[0;31m", "Red")
 blue = AnsiColor("\033[0;34m", "Blue")
@@ -118,10 +119,10 @@ green = AnsiColor("\033[0;32m", "Green")
 black = AnsiColor("\033[0;30m", "Black")
 yellow = AnsiColor("\033[0;33m", "Yellow")
 purple = AnsiColor("\033[0;35m", "Purple")
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Color dictionary
 ansi_color_dict = {
-    
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Red" : MakeAnsiNormal(red),
     "Blue" : MakeAnsiNormal(blue),
     "Cyan" : MakeAnsiNormal(cyan),
@@ -130,7 +131,7 @@ ansi_color_dict = {
     "Black" : MakeAnsiNormal(black),
     "Yellow" : MakeAnsiNormal(yellow),
     "Purple" : MakeAnsiNormal(purple),
-    
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Bold Red" : MakeAnsiBold(red),
     "Bold Blue" : MakeAnsiBold(blue),
     "Bold Cyan" : MakeAnsiBold(cyan),
@@ -139,7 +140,7 @@ ansi_color_dict = {
     "Bold Black" : MakeAnsiBold(black),
     "Bold Yellow" : MakeAnsiBold(yellow),
     "Bold Purple" : MakeAnsiBold(purple),
-
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Italic Red" : MakeAnsiItalic(red),
     "Italic Blue" : MakeAnsiItalic(blue),
     "Italic Cyan" : MakeAnsiItalic(cyan),
@@ -148,7 +149,7 @@ ansi_color_dict = {
     "Italic Black" : MakeAnsiItalic(black),
     "Italic Yellow" : MakeAnsiItalic(yellow),
     "Italic Purple" : MakeAnsiItalic(purple),
-
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Underline Red" : MakeAnsiUnderline(red),
     "Underline Blue" : MakeAnsiUnderline(blue),
     "Underline Cyan" : MakeAnsiUnderline(cyan),
@@ -157,7 +158,7 @@ ansi_color_dict = {
     "Underline Black" : MakeAnsiUnderline(black),
     "Underline Yellow" : MakeAnsiUnderline(yellow),
     "Underline Purple" : MakeAnsiUnderline(purple),
-
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Bold Italic Red" : MakeAnsiBoldItalic(red),
     "Bold Italic Blue" : MakeAnsiBoldItalic(blue),
     "Bold Italic Cyan" : MakeAnsiBoldItalic(cyan),
@@ -166,7 +167,7 @@ ansi_color_dict = {
     "Bold Italic Black" : MakeAnsiBoldItalic(black),
     "Bold Italic Yellow" : MakeAnsiBoldItalic(yellow),
     "Bold Italic Purple" : MakeAnsiBoldItalic(purple),
-
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Bold Underline Red" : MakeAnsiBoldUnderline(red),
     "Bold Underline Blue" : MakeAnsiBoldUnderline(blue),
     "Bold Underline Cyan" : MakeAnsiBoldUnderline(cyan),
@@ -183,7 +184,7 @@ ansi_color_dict = {
     "Underline Italic Black" : MakeAnsiUnderlineItalic(black),
     "Underline Italic Yellow" : MakeAnsiUnderlineItalic(yellow),
     "Underline Italic Purple" : MakeAnsiUnderlineItalic(purple),
-    
+    #--------------------------------------------------------------------------------------------------------------------------------
     "Bold Underline Italic Red" : MakeAnsiBoldUnderlineItalic(red),
     "Bold Underline Italic Blue" : MakeAnsiBoldUnderlineItalic(blue),
     "Bold Underline Italic Cyan" : MakeAnsiBoldUnderlineItalic(cyan),
@@ -192,9 +193,9 @@ ansi_color_dict = {
     "Bold Underline Italic Black" : MakeAnsiBoldUnderlineItalic(black),
     "Bold Underline Italic Yellow" : MakeAnsiBoldUnderlineItalic(yellow),
     "Bold Underline Italic Purple" : MakeAnsiBoldUnderlineItalic(purple),
-
+    #--------------------------------------------------------------------------------------------------------------------------------
 }
-
+#------------------------------------------------------------------------------------------------------------------------------------
 #Output Border that will enclose the response
 def bordered_textbox(text : str, color : AnsiColor) -> str:
     lines = text.splitlines()
@@ -221,7 +222,7 @@ def bordered_textbox(text : str, color : AnsiColor) -> str:
     print(res[-1])
     print(reset.active, end="")
     return '\n'.join(res)
-
+#------------------------------------------------------------------------------------------------------------------------------------
 
 
 
