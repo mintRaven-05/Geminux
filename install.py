@@ -125,19 +125,19 @@ try:
                 print("you can now re-lode the terminal")
             print(f"{ansi["Bold Green"]}For more projects visit www.github.com/mintRaven-05{ansi["White"]}")
         elif platform.architecture()[1] == "WindowsPE":
-            print("collecting module 1 of 1")
+            print(f"{ansi["Green"]}[+] collecting modules 1 of 1{ansi["White"]}")
             time.sleep(1)
             subprocess.run("pip install google-generativeai")
-            print("module collected")
+            print(f"{ansi["Green"]}[+]module installed{ansi["White"]}")
             time.sleep(1)
-            MODEL_NAME = input("""
+            MODEL_NAME = input(f"""{ansi["Yellow"]}
     By what name would you like to address Geminux ? 
     Default name is Geminux [This is an optional parameter, you can change the name later from ~/.config/geminux/config.json]
     press enter to keep default settings or enter a name if you want.
-    >""")
+    >{ansi["White"]}""")
             if MODEL_NAME == "":
                 MODEL_NAME = "Geminux"
-            API_KEY = input("Enter your API key : ")
+            API_KEY = input(f"{ansi["Yellow"]}Enter your API key : {ansi["White"]}")
             with open("config\\config.json", "r") as file:
                 json_data = json.load(file)
                 file.close()
@@ -149,7 +149,7 @@ try:
             with open("config\\config.json", "w") as file:
                 json.dump(json_data, file)
                 file.close()
-            print("\033[0;32m[+]\033[0;37m Config file generated")
+            print(f"{ansi["Bold Green"]}Config file generated")
             time.sleep(1)
             try:
                 parent_dir = f"{HOME}\.Geminux"
@@ -195,7 +195,7 @@ try:
             shutil.copy2("./uninstall.py", f"{HOME}\.Geminux")
             time.sleep(0.5)
             
-            print("Installation completed, you can add Geminux to your $PROFILE")
+            print(f"Installation completed, you can add Geminux to your $PROFILE{ansi["White"]}")
 
         else:
             print(f"{ansi["Red"]}Geminux is only compatible with Linux and Windows, you can install manually in that case !{ansi["White"]}")
