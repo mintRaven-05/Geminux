@@ -74,13 +74,13 @@ try:
                 file.close()
 
             json_data[0]["API_KEY"] = API_KEY
-            json_data[0]["USER"] = USER
+            json_data[0]["USER"] = LINUX_USER
             json_data[0]["MODEL_NAME"] = MODEL_NAME
 
             with open("config/config.json", "w") as file:
                 json.dump(json_data, file)
                 file.close()
-            print(f"{ansi["Bold Green"]}[+]Config file generated{ansi["White"]}")
+            print(f"{ansi["Bold Green"]}[+]Config file generated")
             time.sleep(1)
             print(f"Creating {HOME}/.Geminux")
             subprocess.call(["mkdir", f"{HOME}/.Geminux"])
@@ -101,7 +101,7 @@ try:
             subprocess.call(["cp", "config/config.json", f"{HOME}/.config/Geminux"])
             subprocess.call(["rm", f"{HOME}/.Geminux/config/config.json"])
             time.sleep(0.5)
-            print(f"Generating history.json file")
+            print(f"Generating history.json file{ansi["White"]}")
 
             if "zsh" in SHELL:
                 print("updating ~/.zshrc")
@@ -123,6 +123,7 @@ try:
 
                 print("type geminux to activate the model")
                 print("you can now re-lode the terminal")
+            print(f"{ansi["Bold Green"]}For more projects visit www.github.com/mintRaven-05{ansi["White"]}")
         elif platform.architecture()[1] == "WindowsPE":
             print("collecting module 1 of 1")
             time.sleep(1)
@@ -197,14 +198,14 @@ try:
             print("Installation completed, you can add Geminux to your $PROFILE")
 
         else:
-            print("Geminux is only compatible with Linux and Windows")
+            print(f"{ansi["Red"]}Geminux is only compatible with Linux and Windows, you can install manually in that case !{ansi["White"]}")
         
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("Understandable . . .")
         sys.exit(0)
     else:
-        print("Invalid Choice")
-        print("exiting . . .")
+        print(f"{ansi["Red"]}Invalid Choice")
+        print(f"exiting . . .{ansi["White"]}")
         sys.exit(0)
 
 except Exception as e:
