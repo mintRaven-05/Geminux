@@ -200,16 +200,16 @@ try:
             shutil.copy("./config/config.json", f"{HOME}\\.config\\Geminux")
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
-            print(f"moving config handlers into {HOME}\.Geminux")
+            print(f"moving config handlers into {HOME}\\.Geminux")
             shutil.copytree("config", f"{HOME}\\.Geminux\\config", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print(f"moving essential libs into {HOME}\\.Geminux")
-            shutil.copytree("essentials", f"{HOME}\.Geminux\\essentials", dirs_exist_ok=True)
+            shutil.copytree("essentials", f"{HOME}\\.Geminux\\essentials", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print(f"moving history/history.json into {HOME}\\.Geminux")
-            shutil.copytree("history", f"{HOME}\\.Geminux\history", dirs_exist_ok=True)
+            shutil.copytree("history", f"{HOME}\\.Geminux\\history", dirs_exist_ok=True)
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
             print(f"moving main file to {HOME}\\.Geminux")
