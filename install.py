@@ -39,7 +39,7 @@ ansi = {
 RESET = ansi["White"]
 INFO = ansi["Bold Green"]
 WARNING = ansi["Yellow"]
-ERROR = ansi["Red"]
+ERROR = ERROR
 #----------------------------------------------------------------------------------------------------------------------
 HOME = path.expanduser("~")
 LINUX_USER = HOME[6:]
@@ -229,18 +229,18 @@ try:
             print("visit www.github.com/mintRaven-05 for more projects")
         #----------------------------------------------------------------------------------------------------------------
         else:
-            print(f"{ansi["Red"]}Geminux is only compatible with Linux and Windows, you can install manually in that case !{RESET}")
+            print(f"{ERROR}Geminux is only compatible with Linux and Windows, you can install manually in that case !{RESET}")
     #--------------------------------------------------------------------------------------------------------------------     
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("Understandable . . .")
         sys.exit(0)
     #--------------------------------------------------------------------------------------------------------------------
     else:
-        print(f"{ansi["Red"]}Invalid Choice")
+        print(f"{ERROR}Invalid Choice")
         print(f"exiting . . .{RESET}")
         sys.exit(0)
     #--------------------------------------------------------------------------------------------------------------------
 except Exception as e:
-    print(f"{ansi["Red"]}[ERROR]Could not complete installation : ", e, f"{RESET}")
+    print(f"{ERROR}[ERROR]Could not complete installation : ", e, f"{RESET}")
 #------------------------------------------------------------------------------------------------------------------------
 #END
