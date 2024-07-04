@@ -19,18 +19,17 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
-
+#------------------------------------------------------------------------------------------------------------------------------------
 import os
 import json
 from collections import deque
 from config.ConfigHandle import GetUserConfig
-
+#------------------------------------------------------------------------------------------------------------------------------------
 HOME = os.path.expanduser("~")
 user = GetUserConfig()
 username = user["USER"]
 modelname = user["MODEL_NAME"]
-
-
+#------------------------------------------------------------------------------------------------------------------------------------
 def LoadHistory() -> tuple[deque, deque]:
     with open(f"{HOME}/.Geminux/history/history.json", "r") as json_file:
         DATA = json.load(json_file)
@@ -42,8 +41,7 @@ def LoadHistory() -> tuple[deque, deque]:
         PROMPT_QUEUE = deque(PROMPTS)
         RESPONSE_QUEUE = deque(RESPONSES)
     return PROMPT_QUEUE, RESPONSE_QUEUE
-
-
+#------------------------------------------------------------------------------------------------------------------------------------
 def UpdateHistory(prompt:str, response:str) -> None:
     with open(f"{HOME}/.Geminux/history/history.json", "r") as read_json_file:
         data = json.load(read_json_file)
@@ -67,10 +65,8 @@ def UpdateHistory(prompt:str, response:str) -> None:
             with open(f"{HOME}/.Geminux/history/history.json", "w") as write_json_file_hist:
                 json.dump(data, write_json_file_hist)
                 write_json_file_hist.close()
-
-
+#------------------------------------------------------------------------------------------------------------------------------------
 def GenerateHistoryStub(prompts : deque, responses : deque) -> list:
-    
     history = [
 
         {
@@ -160,3 +156,4 @@ def GenerateHistoryStub(prompts : deque, responses : deque) -> list:
      },
     ]
     return history
+#------------------------------------------------------------------------------------------------------------------------------------
