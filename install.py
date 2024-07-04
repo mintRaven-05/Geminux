@@ -39,7 +39,7 @@ ansi = {
 RESET = ansi["White"]
 INFO = ansi["Bold Green"]
 WARNING = ansi["Yellow"]
-ERROR = ERROR
+ERROR = ansi["Red"]
 #----------------------------------------------------------------------------------------------------------------------
 HOME = path.expanduser("~")
 LINUX_USER = HOME[6:]
