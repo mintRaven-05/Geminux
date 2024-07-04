@@ -36,6 +36,11 @@ ansi = {
     "Bold Green" : "\033[1;32m"
 }
 #--------------------------------------------------------------------------------------------------------------------------------------
+RESET = ansi["White"]
+INFO = ansi["Bold Green"]
+WARNING = ansi["Yellow"]
+ERROR = ansi["Red"]
+#----------------------------------------------------------------------------------------------------------------------
 HOME = path.expanduser("~")
 SHELL = environ.get('SHELL', '')[5:]
 USER = HOME[6:]
@@ -49,13 +54,13 @@ try:
         if platform.architecture()[1] == "ELF":
             #--------------------------------------------------------------------------------------------------------------------------
             if Path(f"{HOME}/.config/Geminux").exists():
-               print(f"{ansi["Bold Green"]}removing {HOME}/.config/Geminux{ansi["White"]}")
+               print(f"{INFO}removing {HOME}/.config/Geminux{RESET}")
                subprocess.call(["rm", "-rf", f"{HOME}/.config/Geminux"])
                time.sleep(0.5)
             #--------------------------------------------------------------------------------------------------------------------------
             if "zsh" in SHELL:
                 #----------------------------------------------------------------------------------------------------------------------
-                print(f"{ansi["Bold Green"]}removing alias and key binds from ~/.zshrc{ansi["White"]}")
+                print(f"{INFO}removing alias and key binds from ~/.zshrc{RESET}")
                 #----------------------------------------------------------------------------------------------------------------------
                 with open(f"{HOME}/.zshrc", "r") as shell_file:
                     data = shell_file.readlines()
@@ -73,14 +78,14 @@ try:
                         data.pop(data.index("bindkey -s '^ ' 'geminux^M'\n"))
                     #------------------------------------------------------------------------------------------------------------------
                     elif "alias geminux='python ~/.Geminux/main.py'\n" not in data:
-                        print(f"{ansi["Yellow"]}could not find alias for geminux in ~/.zshrc")
+                        print(f"{WARNING}could not find alias for geminux in ~/.zshrc")
                         print("seems like you modified the alias")
-                        print(f"In that case you need to remove it manually{ansi["Yellow"]}")
+                        print(f"In that case you need to remove it manually{WARNING}")
                     #------------------------------------------------------------------------------------------------------------------
                     elif "bindkey -s '^ ' 'geminux^M'\n" not in data:
-                        print(f"{ansi["Yellow"]}could not find key bind for geminux in ~/.zshrc")
+                        print(f"{WARNING}could not find key bind for geminux in ~/.zshrc")
                         print("seems like you modified the key bind")
-                        print(f"In that case you need to remove it manually{ansi["White"]}")
+                        print(f"In that case you need to remove it manually{RESET}")
                     #------------------------------------------------------------------------------------------------------------------
                     shell_file.close()
                     #------------------------------------------------------------------------------------------------------------------
@@ -90,7 +95,7 @@ try:
                     #------------------------------------------------------------------------------------------------------------------
             if "bash" in SHELL:
                 #----------------------------------------------------------------------------------------------------------------------
-                print(f"{ansi["Bold Green"]}removing alias from ~/.bashrc{ansi["White"]}")
+                print(f"{INFO}removing alias from ~/.bashrc{RESET}")
                 #----------------------------------------------------------------------------------------------------------------------
                 with open(f"{HOME}/.bashrc", "r") as shell_file:
                     data = shell_file.readlines()
@@ -98,9 +103,9 @@ try:
                         data.pop(data.index("alias geminux='python ~/.Geminux/main.py'\n"))
                 #----------------------------------------------------------------------------------------------------------------------
                     elif "alias geminux='python ~/.Geminux/main.py'\n" not in data:
-                        print(f"{ansi["Yellow"]}could not find alias for geminux in ~/.bashrc")
+                        print(f"{WARNING}could not find alias for geminux in ~/.bashrc")
                         print("seems like you modified the alias")
-                        print(f"In that case you need to remove it manually{ansi["White"]}")
+                        print(f"In that case you need to remove it manually{RESET}")
                 #----------------------------------------------------------------------------------------------------------------------
                     shell_file.close()
                 #----------------------------------------------------------------------------------------------------------------------
@@ -110,18 +115,18 @@ try:
                 #----------------------------------------------------------------------------------------------------------------------
             #--------------------------------------------------------------------------------------------------------------------------
             if Path(f"{HOME}/.Geminux").exists():
-               print(f"{ansi["Bold Green"]}removing {HOME}/.Geminux")
+               print(f"{INFO}removing {HOME}/.Geminux")
                subprocess.call(["rm", "-rf", f"{HOME}/.Geminux"])
                time.sleep(0.5)
                #----------------------------------------------------------------------------------------------------------------------
                print("Uninstallation completed !")
                print("Relode your terminal")
                print("Thank you for trying Geminux")
-               print(f"visit www.github.com/mintRaven-05 for more projects{ansi["White"]}")
+               print(f"visit www.github.com/mintRaven-05 for more projects{RESET}")
                #----------------------------------------------------------------------------------------------------------------------
         elif platform.architecture()[1] == "WindowsPE":
             if Path(f"{HOME}\\.config\\Geminux").exists():
-               print(f"{ansi["Bold Green"]}removing {HOME}\\.config")
+               print(f"{INFO}removing {HOME}\\.config")
                shutil.rmtree(f"{HOME}\\.config")
                time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------------------
@@ -135,13 +140,13 @@ try:
             print("uninstallation completed")
             print("Thank you for trying Geminux")
             print("remove all functions for Geminux from powershell PROFILE, if added any")
-            print(f"visit https://www.github.com/mintRaven-05 for more projects{ansi["White"]}")
+            print(f"visit https://www.github.com/mintRaven-05 for more projects{RESET}")
             #------------------------------------------------------------------------------------------------------------------------
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("quiting . . .")
         sys.exit(0)
 #------------------------------------------------------------------------------------------------------------------------------------
 except  Exception as e:
-    print(print(f"{ansi["Red"]}[ERROR] Could not complete uninstallation: ", e, f"{ansi["White"]}"))
+    print(print(f"{ERROR}[ERROR] Could not complete uninstallation: ", e, f"{RESET}"))
 #------------------------------------------------------------------------------------------------------------------------------------
 #END
