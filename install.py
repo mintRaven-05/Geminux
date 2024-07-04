@@ -36,6 +36,11 @@ ansi = {
     "Bold Green" : "\033[1;32m"
 }
 #----------------------------------------------------------------------------------------------------------------------
+RESET = ansi["White"]
+INFO = ansi["Bold Green"]
+WARNING = ansi["Yellow"]
+ERROR = ansi["Red"]
+#----------------------------------------------------------------------------------------------------------------------
 HOME = path.expanduser("~")
 LINUX_USER = HOME[6:]
 WINDOWS_USER = HOME[9:]
@@ -53,24 +58,24 @@ try:
         #--------------------------------------------------------------------------------------------------------------
         if platform.architecture()[1] == "ELF":
             SHELL = environ.get("SHELL", "")
-            print(f"{ansi["Green"]}[+] collecting modules 1 of 1{ansi["White"]}")
+            print(f"{INFO}[+] collecting modules 1 of 1{RESET}")
             time.sleep(0.5)
             #-----------------------------------------------------------------------------------------------------------
             subprocess.call(
                 ["pip", "install", "google-generativeai", "--break-system-packages"]
             )
             time.sleep(1)
-            print(f"{ansi["Green"]}[+]module installed{ansi["White"]}")
+            print(f"{INFO}[+]module installed{RESET}")
             time.sleep(0.5)
             #-----------------------------------------------------------------------------------------------------------
-            MODEL_NAME = input(f"""{ansi["Yellow"]}
+            MODEL_NAME = input(f"""{WARNING}
     By what name would you like to address Geminux ? 
     Default name is Geminux [This is an optional parameter, you can change the name later from ~/.config/geminux/config.json]
     press enter to keep default settings or enter a name if you want.
-    >{ansi["White"]}""")
+    >{RESET}""")
             if MODEL_NAME == "":
                 MODEL_NAME = "Geminux"
-            API_KEY = input(f"{ansi["Yellow"]}Enter your API key : {ansi["White"]}")
+            API_KEY = input(f"{WARNING}Enter your API key : {RESET}")
             #-----------------------------------------------------------------------------------------------------------
             with open("config/config.json", "r") as file:
                 json_data = json.load(file)
@@ -84,7 +89,7 @@ try:
                 json.dump(json_data, file)
                 file.close()
             #-----------------------------------------------------------------------------------------------------------
-            print(f"{ansi["Bold Green"]}[+]Config file generated")
+            print(f"{INFO}[+]Config file generated")
             time.sleep(1)
             print(f"Creating {HOME}/.Geminux")
             subprocess.call(["mkdir", f"{HOME}/.Geminux"])
@@ -110,7 +115,7 @@ try:
             subprocess.call(["rm", f"{HOME}/.Geminux/config/config.json"])
             time.sleep(0.5)
             #-----------------------------------------------------------------------------------------------------------
-            print(f"Generating history.json file{ansi["White"]}")
+            print(f"Generating history.json file{RESET}")
             #------------------------------------------------------------------------------------------------------------
             if "zsh" in SHELL:
                 #--------------------------------------------------------------------------------------------------------
@@ -135,24 +140,24 @@ try:
                 print("type geminux to activate the model")
                 print("you can now re-lode the terminal")
             #------------------------------------------------------------------------------------------------------------        
-            print(f"{ansi["Bold Green"]}For more projects visit www.github.com/mintRaven-05{ansi["White"]}")
+            print(f"{INFO}For more projects visit www.github.com/mintRaven-05{RESET}")
             #------------------------------------------------------------------------------------------------------------
         elif platform.architecture()[1] == "WindowsPE":
             #------------------------------------------------------------------------------------------------------------
-            print(f"{ansi["Green"]}[+] collecting modules 1 of 1{ansi["White"]}")
+            print(f"{INFO}[+] collecting modules 1 of 1{RESET}")
             time.sleep(1)
             subprocess.run("pip install google-generativeai")
-            print(f"{ansi["Green"]}[+]module installed{ansi["White"]}")
+            print(f"{INFO}[+]module installed{RESET}")
             time.sleep(1)
             #------------------------------------------------------------------------------------------------------------
-            MODEL_NAME = input(f"""{ansi["Yellow"]}
+            MODEL_NAME = input(f"""{WARNING}
     By what name would you like to address Geminux ? 
     Default name is Geminux [This is an optional parameter, you can change the name later from ~/.config/geminux/config.json]
     press enter to keep default settings or enter a name if you want.
-    >{ansi["White"]}""")
+    >{RESET}""")
             if MODEL_NAME == "":
                 MODEL_NAME = "Geminux"
-            API_KEY = input(f"{ansi["Yellow"]}Enter your API key : {ansi["White"]}")
+            API_KEY = input(f"{WARNING}Enter your API key : {RESET}")
             #------------------------------------------------------------------------------------------------------------
             with open("config\\config.json", "r") as file:
                 json_data = json.load(file)
@@ -165,7 +170,7 @@ try:
             with open("config\\config.json", "w") as file:
                 json.dump(json_data, file)
                 file.close()
-            print(f"{ansi["Bold Green"]}Config file generated")
+            print(f"{INFO}Config file generated")
             time.sleep(1)
             #------------------------------------------------------------------------------------------------------------
             try:
@@ -220,11 +225,11 @@ try:
             shutil.copy2("./uninstall.py", f"{HOME}\\.Geminux")
             time.sleep(0.5)
             #------------------------------------------------------------------------------------------------------------
-            print(f"Installation completed, you can add Geminux to your $PROFILE{ansi["White"]}")
+            print(f"Installation completed, you can add Geminux to your $PROFILE{RESET}")
             print("visit www.github.com/mintRaven-05 for more projects")
         #----------------------------------------------------------------------------------------------------------------
         else:
-            print(f"{ansi["Red"]}Geminux is only compatible with Linux and Windows, you can install manually in that case !{ansi["White"]}")
+            print(f"{ansi["Red"]}Geminux is only compatible with Linux and Windows, you can install manually in that case !{RESET}")
     #--------------------------------------------------------------------------------------------------------------------     
     elif ch.upper() == "N" or ch.upper() == "NO":
         print("Understandable . . .")
@@ -232,10 +237,10 @@ try:
     #--------------------------------------------------------------------------------------------------------------------
     else:
         print(f"{ansi["Red"]}Invalid Choice")
-        print(f"exiting . . .{ansi["White"]}")
+        print(f"exiting . . .{RESET}")
         sys.exit(0)
     #--------------------------------------------------------------------------------------------------------------------
 except Exception as e:
-    print(f"{ansi["Red"]}[ERROR]Could not complete installation : ", e, f"{ansi["White"]}")
+    print(f"{ansi["Red"]}[ERROR]Could not complete installation : ", e, f"{RESET}")
 #------------------------------------------------------------------------------------------------------------------------
 #END
