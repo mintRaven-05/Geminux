@@ -4,14 +4,15 @@
 
 Geminux is a CLI tool, which uses the Google AI studio Gemini API to provide an interactive session between the user and Google Gemini. It leverages the power of Gemini 1.5 pro, a versatile language model trained by Google, to create natural language text. This tool is created with new features which are not provided by Google, and we will discuss them one by one later in this file.
 
-### Prerequisites 
-- Having Nerd Font is necessary, else some of the symbols might not be displayed. After installing Nerd Font, apply it to your terminal.
-- You can install the font from this link https://www.nerdfonts.com/font-downloads
-- It is necessary to make an account in Google AI studio and get yourself an API key, as it will be required while proceeding with the installation process.
-- If you don't have an API, you can make one from here https://ai.google.dev/gemini-api
-- You also need python pre-installed in the machine.
-- If you don't have python installed, you can install the latest version by visiting the link below.
-- https://www.python.org/
+ >[!IMPORTANT]
+ > ### Prerequisites 
+ > - Having Nerd Font is necessary, else some of the symbols might not be displayed. After installing Nerd Font, apply it to your terminal.
+ > - You can install the font from this link https://www.nerdfonts.com/font-downloads
+ > - It is necessary to make an account in Google AI studio and get yourself an API key, as it will be required while proceeding with the installation process.
+ > - If you don't have an API, you can make one from here https://ai.google.dev/gemini-api
+ > - You also need python pre-installed in the machine.
+ > - If you don't have python installed, you can install the latest version by visiting the link below.
+ > - https://www.python.org/
 
 ### Features
 - ***Coherent Text Generation***: Generate creative responses based on prompts given by the user
@@ -19,6 +20,9 @@ Geminux is a CLI tool, which uses the Google AI studio Gemini API to provide an 
 - ***Soft training:*** implementation of a soft training method using the data from a history file.
 - ***Configurable***: The user can configure the whole output along with safety protocols. 
 - ***Easy to use CLI interface***: The user is provided with a very easy-to-use interface with text generation animation.
+
+>[!TIP]
+>You will get the best integration of Geminux with Linux based operating systems, and is preferred to install in the same.
 
 ## Installation
 ### Linux
@@ -35,7 +39,7 @@ git clone https://github.com/mintRaven-05/Geminux.git
 
 ```bash
 cd Geminux
-python install.py
+python3 install.py
 ```
 
 After running the script, provide a name to the model (optional) and an API key (mandatory) when required and it will install the model with the default aliases for your respective shell. You will get the name of the alias by which you can activate the model at the end after installation.
