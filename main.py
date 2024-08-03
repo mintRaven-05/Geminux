@@ -25,6 +25,12 @@ from essentials.ansi import ansi_color_dict, bordered_textbox
 import essentials.history as history
 from config.ConfigHandle import GetUserConfig,GetOutputConfigs, GetSafetyProtocols
 #------------------------------------------------------------------------------------------------------------------------------------
+import os
+import platform
+if platform.architecture()[1] == 'ELF':
+    os.environ["GRPC_VERBOSITY"] = "ERROR"
+    os.environ["GLOG_minloglevel"] = "2"
+#------------------------------------------------------------------------------------------------------------------------------------
 user = GetUserConfig()
 conf = GetOutputConfigs()
 protocols = GetSafetyProtocols()
