@@ -148,6 +148,7 @@ try:
             print(f"{INFO}[+] collecting modules 1 of 1{RESET}")
             time.sleep(1)
             subprocess.run("pip install google-generativeai")
+            subprocess.run("pip install prompt_toolkit")
             print(f"{INFO}[+]module installed{RESET}")
             time.sleep(1)
             #------------------------------------------------------------------------------------------------------------
