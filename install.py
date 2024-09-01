@@ -64,6 +64,7 @@ try:
             subprocess.call(
                 ["pip", "install", "google-generativeai", "--break-system-packages"]
             )
+            subprocess.call(["pip", "install", "prompt_toolkit", "--break-system-packages"])
             time.sleep(1)
             print(f"{INFO}[+]module installed{RESET}")
             time.sleep(0.5)
