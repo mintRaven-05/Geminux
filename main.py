@@ -21,6 +21,7 @@
 #SOFTWARE.
 #------------------------------------------------------------------------------------------------------------------------------------
 from prompt_toolkit import prompt
+from prompt_toolkit.formatted_text import ANSI
 import google.generativeai as genai
 from essentials.ansi import ansi_color_dict, bordered_textbox
 import essentials.history as history
@@ -53,7 +54,7 @@ print(f'{HEADLINE_COLOR} Model : {MODEL}{RESET}')
 print(f'{HEADLINE_COLOR}{HEADLINE_TEXT}{RESET}')
 #------------------------------------------------------------------------------------------------------------------------------------
 try:
-    prompt = prompt(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}")
+    prompt = prompt(ANSI(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}"))
 #------------------------------------------------------------------------------------------------------------------------------------
 except KeyboardInterrupt:
     print(f"\n{ERROR_COLOR}[EXIT]{RESET}")
