@@ -20,6 +20,7 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 #------------------------------------------------------------------------------------------------------------------------------------
+from prompt_toolkit import prompt
 import google.generativeai as genai
 from essentials.ansi import ansi_color_dict, bordered_textbox
 import essentials.history as history
@@ -52,7 +53,7 @@ print(f'{HEADLINE_COLOR} Model : {MODEL}{RESET}')
 print(f'{HEADLINE_COLOR}{HEADLINE_TEXT}{RESET}')
 #------------------------------------------------------------------------------------------------------------------------------------
 try:
-    prompt = input(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}")
+    prompt = prompt(f"{PROMPT_COLOR}{PROMPT}{RESET}{INPUT_COLOR}")
 #------------------------------------------------------------------------------------------------------------------------------------
 except KeyboardInterrupt:
     print(f"\n{ERROR_COLOR}[EXIT]{RESET}")
