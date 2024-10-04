@@ -1,7 +1,7 @@
 [
     {
         "_comment": [
-            "WARNING : THIS CONFIGURATION IS CASE SENSITIVE",
+            "CAUTION : THIS CONFIGURATION IS CASE SENSITIVE",
             "This configuration block is responsible for holding user and model credentials.",
             "You need to provide an API key for this to work and also provide which model of gemini",
             "you want to use. You can also change the name of the model according to your own need.",
